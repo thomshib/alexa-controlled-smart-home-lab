@@ -18,7 +18,7 @@ Every message passed to the Lambda function represents a type of action the user
 - In the Trigger configuration page, select `Alexa Skill Kit`
 - Select `disable` option for the Skill ID verification
 - Click `Add` to complete adding an alexa trigger
-- On the Designer section, click the lamda function icon
+- On the Designer section, click the lambda function icon
 - Go to `Basic settings` section of the page
 - On a safer side, set memory as `256 MB` and Timeout as `10 seconds`
 - Click `Save` button on the top right corner to save changes
@@ -26,17 +26,17 @@ Every message passed to the Lambda function represents a type of action the user
 
 #### Packaging Lambda Function Code
 - Copy the `certs` folder in the root of the `alexa-controlled-smart-home-lab` directory to the `lambda_function` subdirectory
-- `cd` into the `lambda_function` sub directory
+- `cd` into the `Exercise7/lambda_function` sub directory
 - Open `lambda_function.py` file in your preferred text editor 
 - Update the config section at the top of this file with the cert names and Rest API Endpoint details you noted earlier 
-Also, replace the `<THING_NAME>` with the Thing you created in [above section](#creating-a-thing)
+Also, replace the `<THING_NAME>` with the Thing you created in previous exercise
 ````python
 config = { 
          'host': '<REST API Endpoint>',
          'rootCAName': '<Root certificate file name>',
          'certificateName': '<Certificate file name>',
          'privateKeyName' : '<Private key file name>',
-         'clientId': 'drone_alexa',
+         'clientId': 'alexa_client_lambda',
          'port' : 8883
 }
 

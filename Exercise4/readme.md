@@ -1,6 +1,6 @@
 # Exercise 4 - Setting AWS IoT
 
-<img src="https://erviveksoni.github.io/alexa-controlled-smart-home-lab/images/design.png" alt="Alexa" width="600" height="274" border="10" />
+<img src="https://raw.githubusercontent.com/erviveksoni/alexa-controlled-smart-home-lab/master/images/design.png" alt="Alexa" width="600" height="274" border="10" />
 <br/>
 
 ### Provision AWS IoT Device
