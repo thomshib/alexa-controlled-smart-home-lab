@@ -1,1 +1,1 @@
-# Exercise 2 - RGB LED and Temperature Sensor
+# Exercise 2 - Basis Sensors with NodeMCU

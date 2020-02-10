@@ -1,1 +1,1 @@
-# Exercise 3 - Wifi Server
+# Exercise 3 - Setting NodeMCU as Wifi Server
