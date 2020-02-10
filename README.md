@@ -1,6 +1,6 @@
 # Alexa Controlled Smart Home System
 
-<a href="https://erviveksoni.github.io/alexa-controlled-drone/images/IOTTeaser.MOV"><img src="https://erviveksoni.github.io/alexa-controlled-drone/images/project_banner.jpeg" alt="Alexa" width="600" border="10" />
+<a href="https://raw.githubusercontent.com/erviveksoni/alexa-controlled-smart-home-lab/master/images/IOTTeaser.MOV"><img src="https://raw.githubusercontent.com/erviveksoni/alexa-controlled-smart-home-lab/master/images/project_banner.jpeg" alt="Alexa" width="600" border="10" />
 <br/></a>
 
 # Prerequisites
