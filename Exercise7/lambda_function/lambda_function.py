@@ -60,7 +60,7 @@ def on_launch(event, context):
 
 def on_processing_error(event, context, exc):
     logging.error(exc)
-    return alexa_response_builder.statement("An error occured while processing your request.")
+    return alexa_response_builder.statement("An error occurred while processing your request.")
 
 ##############################
 # Routing
