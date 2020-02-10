@@ -1,5 +1,8 @@
 # Alexa Controlled Smart Home System
 
+<a href="https://erviveksoni.github.io/alexa-controlled-drone/images/IOTTeaser.MOV"><img src="https://erviveksoni.github.io/alexa-controlled-drone/images/project_banner.jpeg" alt="Alexa" width="600" border="10" />
+<br/></a>
+
 # Prerequisites
 ## Hardware
 - NodeMCU Board with Micro USB Cable 
@@ -28,7 +31,7 @@
 - Create a new folder `certs` 
 
 
-## List of Exercises
+# List of Exercises
 1. [Exercise 1](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise1) - Blink Onboard LED
 2. [Exercise 2](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise2) - Basis Sensors with NodeMCU
 3. [Exercise 3](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise3) - Setting NodeMCU as Wifi Server
