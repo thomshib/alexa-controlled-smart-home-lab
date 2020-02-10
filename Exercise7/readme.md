@@ -1,0 +1,1 @@
+# Exercise 7 - Connecting Skill to AWS IoT
