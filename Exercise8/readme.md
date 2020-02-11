@@ -23,7 +23,7 @@ There are multiple ways to test your skill. The easiest one is by using the Alex
 - Press the microphone button an speak _`Alexa, open my smarthome`_
 - You should receive a voice feedback as _`To start, you should say: Alexa, ask my smarthome to turn on red light.`_
 - You can try other commands and alexa should respond back with the command acknowledgement
-<br/>
+
 
 #### Enabling Alexa Skill
 
@@ -37,3 +37,9 @@ There are multiple ways to test your skill. The easiest one is by using the Alex
 This will enable your skill on all devices, iOS and Android apps connected to your Alexa developer account.
 
 Congratulations!! You have successfully created an alexa skill!!
+
+### Available Alexa Commands
+**_Alexa, open my smarthome._** <br/>
+**_Alexa, ask my smarthome temperature._** <br/>
+**_Alexa, ask my smarthome to turn on red light._** Other possible values (`red/green/blue`)<br/>
+**_Alexa, ask my smarthome to turn off light._** <br/>
