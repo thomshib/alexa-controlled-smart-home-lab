@@ -1,0 +1,79 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "my smarthome",
+      "intents": [
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "turnoffIntent",
+          "slots": [],
+          "samples": [
+            "switch off light",
+            "turn off light"
+          ]
+        },
+        {
+          "name": "turnonIntent",
+          "slots": [
+            {
+              "name": "color",
+              "type": "color"
+            }
+          ],
+          "samples": [
+            "switch on {color} light",
+            "turn on {color} light"
+          ]
+        },
+        {
+          "name": "temperatureIntent",
+          "slots": [],
+          "samples": [
+            "temperature"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "name": "color",
+          "values": [
+            {
+              "name": {
+                "value": "blue"
+              }
+            },
+            {
+              "name": {
+                "value": "green"
+              }
+            },
+            {
+              "name": {
+                "value": "red"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

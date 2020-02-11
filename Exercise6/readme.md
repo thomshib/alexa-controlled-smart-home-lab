@@ -20,3 +20,11 @@ Now we are all set to create an Alexa skill which will interact with user to rec
 - Click `Endpoint` from the left hand navigation
 - Click `Build Model` button at the top of the page and wait for the skill build process to complete
 
+
+### Evaluate the Model
+
+Now as the basic structure for the skill is ready, let's test the utterances to see how they resolve to intents and slots. 
+
+- On the top navigation bar, click `Evaluae Model` button on the right side
+- In the text box type `ask my smarthome temperature` and check if this resolves to the `temperatureIntent`	
+- Repeat the same to test other intents. All the utterances should resolved to desired intents
