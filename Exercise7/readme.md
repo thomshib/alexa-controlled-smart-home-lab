@@ -1,6 +1,4 @@
-# Exercise 7 - Connecting Alexa Skill to AWS IoT
-
-### Creating AWS Lambda Function
+# Exercise 7 - Creating an AWS Lambda Function Endpoint
 
 Next step is to create an AWS Lambda function which will be invoked by the Alexa skill and will act as a bridge between Skill and AWS IoT. 
 The message passed by the Alexa invocation to the Lambda function will be validated against a list of allowed actions and further sent to the Thing we created in the above step.

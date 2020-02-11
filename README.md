@@ -38,4 +38,5 @@
 4. [Exercise 4](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise4) - Setting AWS IoT
 5. [Exercise 5](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise5) - Connecting NodeMCU with AWS IoT
 6. [Exercise 6](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise6) - Creating Alexa Skill
-7. [Exercise 7](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise7) - Connecting Alexa Skill to AWS IoT
+7. [Exercise 7](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise7) - Creating an AWS Lambda Function Endpoint
+8. [Exercise 8](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise8) - Connecting Alexa Skill to AWS IoT
