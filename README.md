@@ -1,5 +1,12 @@
 # Alexa Controlled Smart Home System
 
+This projects aims to provide a step by step guidance on building an alexa voice controlled smart home system using nodemcu and few sensors.
+
+This project explores the key IoT platform aspects like device registry, 
+device shadows (aka device twins) provided by AWS IoT service to enable communication between hardware boards, sensors and a custom Amazon Alexa skill giving the ability to execute actions via voice commands.
+
+This project aims to guide and enable participants to implement other ideas as well since the blocks/services/concepts used here are very much needed for developing any IoT application.
+
 <a href="https://raw.githubusercontent.com/erviveksoni/alexa-controlled-smart-home-lab/master/images/IOTTeaser.MOV"><img src="https://raw.githubusercontent.com/erviveksoni/alexa-controlled-smart-home-lab/master/images/project_banner.jpeg" alt="Alexa" width="600" border="10" />
 <br/></a>
 
@@ -10,6 +17,7 @@
 - 1 RGD LED
 - Few Jumper Wires
 - 1 Breadboard
+- Amazon Alexa Device (optional)
 
 ## Software
 - [Arduino IDE](https://www.arduino.cc/en/main/software)

@@ -140,5 +140,6 @@ dmypy.json
 *.zip
 
 # AWSIoTSDK
+certs/
 Exercise7/lambda_function/AWSIoTPythonSDK/
 *.dist-info/
