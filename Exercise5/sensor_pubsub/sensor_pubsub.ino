@@ -4,7 +4,7 @@
 #include <WiFiUdp.h>
 #include <NTPClient.h>
 
-// Update these with values suitable for your network.
+// GPIO Pins
 int red_pin = 5;
 int green_pin = 4;
 int blue_pin = 0;
@@ -18,6 +18,7 @@ char shadowTopicUpdate[50];
 char payload[100];
 int value = 0;
 
+// Update these with values suitable for your network and AWS configuratons.
 /**********************/
 const char *ssid = "<SSID>";
 const char *password = "<PASSWORD>";
@@ -26,6 +27,7 @@ const char *thing_name = "<THING_NAME>";
 const char *AWS_endpoint = "<REST API Endpoint>";
 /**********************/
 
+// PubSub client and Wifi Configurations
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org");
 
