@@ -3,6 +3,10 @@
         {
             "name": "Mac",
             "includePath": [
+                "/Users/viveksni/Documents/Arduino/libraries/NTPClient",
+                "/Users/viveksni/Documents/Arduino/libraries/PubSubClient/src",
+                "/Users/viveksni/Library/Arduino15/packages/esp8266/tools/**",
+                "/Users/viveksni/Library/Arduino15/packages/esp8266/hardware/esp8266/2.6.2/**",
                 "/Users/nainajaiswal/Library/Arduino15/packages/esp8266/tools/**",
                 "/Users/nainajaiswal/Library/Arduino15/packages/esp8266/hardware/esp8266/2.6.3/**"
             ],
