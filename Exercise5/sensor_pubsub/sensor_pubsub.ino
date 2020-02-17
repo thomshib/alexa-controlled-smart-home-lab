@@ -70,6 +70,7 @@ void setup()
   pinMode(blue_pin, OUTPUT);
   Serial.setDebugOutput(true);
   setup_wifi();
+
   delay(1000);
   turn_off_led();
   snprintf(shadowTopicUpdate, 50, "$aws/things/%s/shadow/update", thing_name);
@@ -83,9 +84,7 @@ void setup_wifi()
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
-
   WiFi.begin(ssid, password);
-
   while (WiFi.status() != WL_CONNECTED)
   {
     delay(500);
