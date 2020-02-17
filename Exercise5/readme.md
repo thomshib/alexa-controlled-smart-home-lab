@@ -217,3 +217,24 @@ void reconnect()
     }
   }
 }
+
+
+## Once done with code modification, we need to load certs in Node MCU. 
+
+## Encrypt the certificate files in DER-format using this command:
+
+$ openssl x509 -in xxx-certificate.pem.crt -out cert.der -outform DER 
+$ openssl rsa -in xxx-private.pem.key -out private.der -outform DER
+$ openssl x509 -in AmazonRootCA1.pem -out ca.der -outform DER
+
+## Copy the DER-format files into a folder called data which sits alongside your Arduino code.
+
+## Upload these certificates using ESP8266FS tool which is attached in the Exercise5 folder.
+- Create a "tools" folder inside Arduino folder.
+- Download the ESP8266FS zip and extract it into the tools folder.
+- Restart your Arduino IDE.
+- Under Tools in Arduino IDE, now you should be able to see "ESP8266 Sketch Data Uploader" option.
+- Connect your device and click on "ESP8266 Sketch Data Uploader" option to upload certificates to Node MCU.
+
+
+
