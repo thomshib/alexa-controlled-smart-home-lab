@@ -1,36 +1,47 @@
 # Exercise 5 - Connecting NodeMCU with AWS IoT
 
-## Install the following Arduino Libraries
+## Burning the AWS Thing Certificates to NodeMCU
+
+- Copy the `certs` folder to the current working directory
+- Open terminal and cd to the newly copied `certs` folder
+- Use OpenSSL to convert the certificates to `.der` format so they can be understood by NodeMCU board
+
+````
+$ openssl x509 -in xxx-certificate.pem.crt -out cert.der -outform DER 
+$ openssl rsa -in xxx-private.pem.key -out private.der -outform DER
+$ openssl x509 -in AmazonRootCA1.pem -out ca.der -outform DER
+````
+- Create a directory `data` which sits alongside your Arduino code and copy all the .DER-format files to it
+- From the `Tools` menu in Arduino IDE, you should be able to see `ESP8266 Sketch Data Uploader` option
+    > __Note__: If you have followed the prerequisites for this lab, you should already have Arduino ESP8266 filesystem uploader installed.
+- Ensure the board is connected to your laptop, click `ESP8266 Sketch Data Uploader` option to upload certificates to NodeMCU. 
+    > __Note__: The tool automatically detects `data` folder by convention and uploads its contents to the board.
+
+
+## Updating the sketch to interact with AWS Thing
+
+### Install the following Arduino Libraries
 - NTPClient
 - PubSubClient
 
-Unzip NTPClient-master & pubsubclient-master libraries mentioned in the folder into your project's library folder.
+You can install these libraries from Tools > Manage Libraries
 
-## Updating NodeMCU Sketch Code
-- Open `sensor_pubsub.ino` file in arduino IDE
-- Update the config section at the top of this file with the SSID, Password of your WIFI network, Rest API Endpoint details with the AWS endpoint you noted earlier and  
-`<THING_NAME>` with the Thing you created in previous exercise
-     ````c
-     const char *ssid = "<SSID>";
-     const char *password = "<PASSWORD>";
-
-     const char *thing_name = "<THING_NAME>";
-     const char *AWS_endpoint = "<REST API Endpoint>";
-
-make the above changes in the code OR build on the previous module by including following changes : 
-
-## Include the following packages in your program:
+### Include the following packages in your program:
+````c
 #include "FS.h" 
 #include <PubSubClient.h>
 #include <WiFiUdp.h>
 #include <NTPClient.h>
+````
 
-## Add AWS configuration
+### Add AWS configuration
+````c
 const char *thing_name = "<THING_NAME>";
 const char *AWS_endpoint = "<REST API Endpoint>";
+````
 
-
-## Add PubSub client and Wifi Configurations
+### Add PubSub client and Wifi Configurations
+````c
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org");
 
@@ -64,17 +75,24 @@ void callback(char *topic, byte *payload, unsigned int length)
   }
 }
 PubSubClient client(AWS_endpoint, 8883, callback, espClient); //set  MQTT port number to 8883 as per //standard
+````
 
-## Remove the code block for starting a local web server i.e configure_local_web_server() from setup() .
+### Removing local web server
+Remove the code block for starting a local web server which is `configure_local_web_server();` from `setup()` function.
 
-## Load certificates and configure shadow update
+### Load certificates
 
-- delay(1000);
-  turn_off_led();
-  snprintf(shadowTopicUpdate, 50, "$aws/things/%s/shadow/update", thing_name);
-  loadCertificates();
+Inside the `setup()` function add the below code towards the end
+````c
+ delay(1000);
+ turn_off_led();
+ snprintf(shadowTopicUpdate, 50, "$aws/things/%s/shadow/update", thing_name);
+ loadCertificates();
+````
+Add the below code towards the end of the file
 
-- void loadCertificates()
+````c
+void loadCertificates()
 {
   if (!SPIFFS.begin())
   {
@@ -130,11 +148,13 @@ PubSubClient client(AWS_endpoint, 8883, callback, espClient); //set  MQTT port n
   else
     Serial.println("ca failed");
 }
+````
 
-## Add following Wifi configuration to interact with certificates with local time.
+### Sync local time for certificate authentication
+Add following Wifi configurations to sync local time for certificate authentication
 
-- Modify this code block in setup_wifi() function:
-  
+- Modify the code block in `setup_wifi()` function
+````c
   espClient.setBufferSizes(512, 512);
   Serial.println("");
   Serial.println("WiFi connected");
@@ -147,15 +167,21 @@ PubSubClient client(AWS_endpoint, 8883, callback, espClient); //set  MQTT port n
   }
 
   espClient.setX509Time(timeClient.getEpochTime());
+````
 
-## Replace the code block for loop() with the following code:
+### Sending device updates to AWS Thing
 
+Add the following new variable to the sketch
+````c
 long lastMsg = 0;
 char msg[50];
 char shadowTopicUpdate[50];
 char payload[100];
 int value = 0;
+````
 
+Update the loop function code as show below to allow updating Shadows with the temperature values
+````c
 void loop()
 {
   if (!client.connected())
@@ -180,9 +206,13 @@ void loop()
     client.publish(shadowTopicUpdate, payload);
   }
 }
+````
 
-## Add reconnect() for reconnecting to PubSub client and subscribing to it.
+### Implementing reconnection strategy for pubsub client
 
+Add the following code to the sketch
+
+````c
 // Sensors and LED
 void reconnect()
 {
@@ -217,24 +247,4 @@ void reconnect()
     }
   }
 }
-
-
-## Once done with code modification, we need to load certs in Node MCU. 
-
-## Encrypt the certificate files in DER-format using this command:
-
-$ openssl x509 -in xxx-certificate.pem.crt -out cert.der -outform DER 
-$ openssl rsa -in xxx-private.pem.key -out private.der -outform DER
-$ openssl x509 -in AmazonRootCA1.pem -out ca.der -outform DER
-
-## Copy the DER-format files into a folder called data which sits alongside your Arduino code.
-
-## Upload these certificates using ESP8266FS tool which is attached in the Exercise5 folder.
-- Create a "tools" folder inside Arduino folder.
-- Download the ESP8266FS zip and extract it into the tools folder.
-- Restart your Arduino IDE.
-- Under Tools in Arduino IDE, now you should be able to see "ESP8266 Sketch Data Uploader" option.
-- Connect your device and click on "ESP8266 Sketch Data Uploader" option to upload certificates to Node MCU.
-
-
-
+````
