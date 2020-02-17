@@ -5,16 +5,16 @@
 - Copy the `certs` folder to the current working directory
 - Open terminal and cd to the newly copied `certs` folder
 - Use OpenSSL to convert the certificates to `.der` format so they can be understood by NodeMCU board
-
-````
-$ openssl x509 -in xxx-certificate.pem.crt -out cert.der -outform DER 
-$ openssl rsa -in xxx-private.pem.key -out private.der -outform DER
-$ openssl x509 -in AmazonRootCA1.pem -out ca.der -outform DER
-````
+    
+    ````
+    $ openssl x509 -in xxx-certificate.pem.crt -out cert.der -outform DER 
+    $ openssl rsa -in xxx-private.pem.key -out private.der -outform DER
+    $ openssl x509 -in AmazonRootCA1.pem -out ca.der -outform DER
+    ````
 - Create a directory `data` which sits alongside your Arduino code and copy all the .DER-format files to it
-- From the `Tools` menu in Arduino IDE, you should be able to see `ESP8266 Sketch Data Uploader` option
+- From the `Tools` menu in Arduino IDE, you should be able to see `ESP8266 Sketch Data Uploade` option
     > __Note__: If you have followed the prerequisites for this lab, you should already have Arduino ESP8266 filesystem uploader installed.
-- Ensure the board is connected to your laptop, click `ESP8266 Sketch Data Uploader` option to upload certificates to NodeMCU. 
+- Ensure the board is connected to your laptop, click `ESP8266 Sketch Data Uploade` option to upload certificates to NodeMCU. 
     > __Note__: The tool automatically detects `data` folder by convention and uploads its contents to the board.
 
 
@@ -248,3 +248,11 @@ void reconnect()
   }
 }
 ````
+
+### Testing the PubSub client
+Now our NodeMCU can send and receive messages to/from the AWS IoT service. 
+We can confirm this using the `Test` MQTT client available on AWS IoT service.
+- Open AWS IoT service home page
+- From the left navigation click `Test`
+- Click `Publish to a topic` option and put the topic as `mysmarthome/turnonred` and then click `Publish to topic` button
+- If everything is setup correctly then you should see the RED led glowing and vales displayed in the Arduino IDE serial monitor
