@@ -40,6 +40,8 @@ const char *thing_name = "<THING_NAME>";
 const char *AWS_endpoint = "<REST API Endpoint>";
 ````
 
+Replace THING_NAME and AWS Endpoint obtained from previous exercises.
+
 ### Add PubSub client and Wifi Configurations
 ````c
 WiFiUDP ntpUDP;
@@ -151,9 +153,7 @@ void loadCertificates()
 ````
 
 ### Sync local time for certificate authentication
-Add following Wifi configurations to sync local time for certificate authentication
-
-- Modify the code block in `setup_wifi()` function
+Add following Wifi configurations to sync local time for certificate authentication. Modify the code block in `setup_wifi()` function and add the below code towards the end of the function
 ````c
   espClient.setBufferSizes(512, 512);
   Serial.println("");
