@@ -18,11 +18,12 @@ int blueStatus = digitalRead(blue_pin);
 float temperature = 0;
 float humidity = 0;
 
-// Update these with values suitable for your network configuratons.
+// Update these with values suitable for your network configurations.
 /**********************/
 const char* ssid = "<SSID>";
 const char* password = "<PASSWORD>";
 /**********************/
+
 // Set web server port number to 80
 WiFiServer server(80);
 

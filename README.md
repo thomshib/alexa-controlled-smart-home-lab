@@ -42,7 +42,7 @@ This project aims to guide and enable participants to implement other ideas as w
 # List of Exercises
 1. [Exercise 1](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise1) - Blink Onboard LED
 2. [Exercise 2](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise2) - Basis Sensors with NodeMCU
-3. [Exercise 3](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise3) - Setting NodeMCU as Wifi Server
+3. [Exercise 3](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise3) - Setting up a Web Server on NodeMCU
 4. [Exercise 4](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise4) - Setting AWS IoT
 5. [Exercise 5](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise5) - Connecting NodeMCU with AWS IoT
 6. [Exercise 6](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise6) - Creating Alexa Skill
