@@ -8,7 +8,9 @@
                 "/Users/viveksni/Library/Arduino15/packages/esp8266/tools/**",
                 "/Users/viveksni/Library/Arduino15/packages/esp8266/hardware/esp8266/2.6.2/**",
                 "/Users/nainajaiswal/Library/Arduino15/packages/esp8266/tools/**",
-                "/Users/nainajaiswal/Library/Arduino15/packages/esp8266/hardware/esp8266/2.6.3/**"
+                "/Users/nainajaiswal/Library/Arduino15/packages/esp8266/hardware/esp8266/2.6.3/**",
+                "/Users/DANIELE/Library/Arduino15/packages/esp8266/hardware/esp8266/2.6.3/**",
+                "/Users/DANIELE/Library/Arduino15/packages/esp8266/tools/**"
             ],
             "forcedInclude": [],
             "macFrameworkPath": [
