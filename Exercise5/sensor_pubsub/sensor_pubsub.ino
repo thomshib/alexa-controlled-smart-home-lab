@@ -3,6 +3,7 @@
 #include <PubSubClient.h>
 #include <WiFiUdp.h>
 #include <NTPClient.h>
+#include "DHT.h"        // including the library of DHT11 temperature and humidity sensor
 
 // GPIO Pins
 int red_pin = 5;
@@ -17,6 +18,13 @@ char msg[50];
 char shadowTopicUpdate[50];
 char payload[100];
 int value = 0;
+
+//Set Temperature sensor to read from GPIO 2 / D4 
+#define DHTTYPE DHT11
+#define dht_dpin 2
+DHT dht(dht_dpin, DHTTYPE);
+float temperature = 0;
+float humidity = 0;
 
 // Update these with values suitable for your network and AWS configuratons.
 /**********************/
@@ -64,12 +72,14 @@ PubSubClient client(AWS_endpoint, 8883, callback, espClient); //set  MQTT port n
 
 void setup()
 {
+  dht.begin();
   Serial.begin(115200);
   pinMode(red_pin, OUTPUT);
   pinMode(green_pin, OUTPUT);
   pinMode(blue_pin, OUTPUT);
   Serial.setDebugOutput(true);
   setup_wifi();
+
   delay(1000);
   turn_off_led();
   snprintf(shadowTopicUpdate, 50, "$aws/things/%s/shadow/update", thing_name);
@@ -83,9 +93,7 @@ void setup_wifi()
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
-
   WiFi.begin(ssid, password);
-
   while (WiFi.status() != WL_CONNECTED)
   {
     delay(500);
@@ -175,7 +183,7 @@ void loop()
   // Publish every one second
   if (now - lastMsg > 1000)
   {
-    value = read_temperature();
+    value = get_temperature();
     lastMsg = now;
     snprintf(msg, 75, "Room Temprature: %ld", value);
     Serial.print("Publish message: ");
@@ -250,8 +258,9 @@ void turn_off_led()
   digitalWrite(blue_pin, HIGH);
 }
 
-int read_temperature()
+int get_temperature()
 {
-  int temp = 23;
-  return temp;
+  humidity = dht.readHumidity();
+  temperature = dht.readTemperature();
+  return temperature;
 }

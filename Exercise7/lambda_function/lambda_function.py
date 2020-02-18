@@ -26,6 +26,9 @@ config = {
 
 thing_name = "<THING_NAME>"
 
+device_shadow_get_topic = "$aws/things/" + thing_name + "/shadow/get"
+device_shadow_get_accepted_topic = "$aws/things/" + thing_name + "/shadow/get/accepted"
+
 
 ##############################
 # Program Entry
@@ -37,6 +40,8 @@ def lambda_handler(event, context):
 
     try:
         awsclient = awsIoTClient(config)
+        awsclient.subscribe([device_shadow_get_accepted_topic], message_callback)
+        awsclient.publish_message(device_shadow_get_topic, '')
         time.sleep(100e-3)  # 100ms
 
         if event['request']['type'] == "LaunchRequest":
@@ -54,13 +59,24 @@ def lambda_handler(event, context):
 
 def on_launch(event, context):
     logger.info("launch called")
-    return alexa_response_builder.statement("To start, you should say: Alexa, ask my smarthome to turn on red light.")
-
-
+    return alexa_response_builder.statement("To start, you should say: Alexa, ask control light to turn on.")
 
 def on_processing_error(event, context, exc):
     logging.error(exc)
-    return alexa_response_builder.statement("An error occurred while processing your request.")
+    return alexa_response_builder.statement("An error occured while processing your request.")
+
+def message_callback(client, userdata, message):
+    global telemetry_data
+    try:
+        topic = message.topic
+        if topic == device_shadow_get_accepted_topic:
+            rawdata = str(message.payload.decode("utf-8"))
+            rawdata = json.loads(rawdata)
+            telemetry_data = rawdata["state"]["reported"]
+            logging.info(telemetry_data)
+
+    except Exception as e:
+        logging.error("Error occurred " + str(e))
 
 ##############################
 # Routing
@@ -72,10 +88,18 @@ def intent_router(event, context):
 
     # Custom Intents
 
+    if intent == "temperatureIntent":
+        value = event['request']['intent']
+        return handle_temperature_intent(value)
+        
     if intent == "turnoffIntent":
         logger.info("turn off light")
         return respond_intent("Turning off light", "mysmarthome/turnoff", None)
-        
+    
+    if intent == "customColorIntent":
+        logger.info("Turning on your favourite colour light")
+        return respond_intent("Turning on your favourite colour light", "mysmarthome/turnonblue", None)
+
     if intent == "turnonIntent":
         logger.info("turn on light")
         if 'value' in event['request']['intent']['slots']['color']:
@@ -108,6 +132,11 @@ def intent_router(event, context):
     if intent == "AMAZON.FallbackIntent":
         return fallback_intent()
 
+def handle_temperature_intent(value):
+    televalue = telemetry_data["temperature"]
+    text = "Room temperature is " + str(televalue) + " degrees"
+    return alexa_response_builder.statement(text)
+    
 ##############################
 # Required Intents
 ##############################
