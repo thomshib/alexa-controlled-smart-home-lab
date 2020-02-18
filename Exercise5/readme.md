@@ -24,7 +24,8 @@
 - NTPClient
 - PubSubClient
 
-You can install these libraries from Tools > Manage Libraries
+You can install these libraries from Tools > Manage Libraries and include them from Sketch > Include Library
+
 
 ### Include the following packages in your program:
 ````c
