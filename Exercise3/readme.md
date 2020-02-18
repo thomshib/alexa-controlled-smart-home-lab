@@ -5,8 +5,10 @@ In this section we will configure the NodeMCU board as a WIFI client and setup a
 The HTML page will allow us to switch on/off the LED's and also to view the room temperature in real time.
 
 ## Setting the Wifi Credentials
-- Include the ESP8266WiFi WIFI library
-`#include <ESP8266WiFi.h>`
+- Include the ESP8266WiFi WIFI library in the sketch by adding the below code at the top of the file
+````c
+#include <ESP8266WiFi.h>
+````
 
 - Declare the SSID and Password variables at the end of variables section of the sketch
 - Replace `<SSID>` and `<PASSWORD>` in the code with your WiFi credentials. 
@@ -127,3 +129,4 @@ void loop() {
 Take a note of the IP Address of the NodeMCU as printed on the screen
 - Now browse the above printed IP Address on your laptop to open the web page. 
 The web page should display 4 buttons and 2 labels for temperature and humidity
+    > __Note__: Esure your laptop and NodeMCU board are connected to the same WIFI network.
