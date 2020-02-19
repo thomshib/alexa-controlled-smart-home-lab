@@ -11,9 +11,6 @@ int blue_pin = 0;
 #define dht_dpin 2
 DHT dht(dht_dpin, DHTTYPE);
 
-int redStatus = digitalRead(red_pin);
-int greenStatus = digitalRead(green_pin);
-int blueStatus = digitalRead(blue_pin);
 float temperature = 0;
 float humidity = 0;
 
@@ -55,10 +52,6 @@ void turn_off_led()
   digitalWrite(blue_pin, HIGH);
 }
 
-void get_led_status(){
-  redStatus = digitalRead(red_pin);
-  greenStatus = digitalRead(green_pin);
-  blueStatus = digitalRead(blue_pin);
 }
 
 void get_temperature(){
