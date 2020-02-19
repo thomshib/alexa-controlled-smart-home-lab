@@ -40,11 +40,11 @@ This project aims to guide and enable participants to implement other ideas as w
 
 
 # List of Exercises
-1. [Exercise 1](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise1) - Blink Onboard LED
-2. [Exercise 2](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise2) - Basis Sensors with NodeMCU
-3. [Exercise 3](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise3) - Setting up a Web Server on NodeMCU
-4. [Exercise 4](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise4) - Setting AWS IoT
-5. [Exercise 5](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise5) - Connecting NodeMCU with AWS IoT
-6. [Exercise 6](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise6) - Creating Alexa Skill
-7. [Exercise 7](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise7) - Creating an AWS Lambda Function Endpoint
-8. [Exercise 8](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise8) - Connecting Alexa Skill to AWS IoT
+1. [Exercise 1](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise1/readme.md) - Blink Onboard LED
+2. [Exercise 2](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise2/readme.md) - Basis Sensors with NodeMCU
+3. [Exercise 3](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise3/readme.md) - Setting up a Web Server on NodeMCU
+4. [Exercise 4](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise4/readme.md) - Setting AWS IoT
+5. [Exercise 5](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise5/readme.md) - Connecting NodeMCU with AWS IoT
+6. [Exercise 6](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise6/readme.md) - Creating Alexa Skill
+7. [Exercise 7](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise7/readme.md) - Creating an AWS Lambda Function Endpoint
+8. [Exercise 8](https://github.com/erviveksoni/alexa-controlled-smart-home-lab/tree/master/Exercise8/readme.md) - Connecting Alexa Skill to AWS IoT
