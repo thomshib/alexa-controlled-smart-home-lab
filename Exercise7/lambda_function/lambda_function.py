@@ -59,7 +59,7 @@ def lambda_handler(event, context):
 
 def on_launch(event, context):
     logger.info("launch called")
-    return alexa_response_builder.statement("To start, you should say: Alexa, ask control light to turn on.")
+    return alexa_response_builder.statement("To start, you should say: Alexa, ask my smarthome to turn on red light.")
 
 def on_processing_error(event, context, exc):
     logging.error(exc)
